@@ -885,6 +885,68 @@ declare namespace IORedis {
             countValue: number,
             sort?: 'ASC' | 'DESC'
         ): Promise<string[]>;
+        georadius(
+            key: KeyType,
+            longitude: number,
+            latitude: number,
+            radius: number,
+            unit: 'm'|'km'|'ft'|'mi',
+            withCoord: 'WITHCOORD',
+            sort?: 'ASC' | 'DESC'
+        ): Promise<Array<[string, [string, string]]>>;
+        georadius(
+            key: KeyType,
+            longitude: number,
+            latitude: number,
+            radius: number,
+            unit: 'm'|'km'|'ft'|'mi',
+            withCoord: 'WITHCOORD',
+            count: 'COUNT',
+            countValue: number,
+            sort?: 'ASC' | 'DESC'
+        ): Promise<Array<[string, [string, string]]>>;
+        georadius(
+            key: KeyType,
+            longitude: number,
+            latitude: number,
+            radius: number,
+            unit: 'm'|'km'|'ft'|'mi',
+            withDist: 'WITHDIST',
+            sort?: 'ASC' | 'DESC'
+        ): Promise<Array<[string, string]>>;
+        georadius(
+            key: KeyType,
+            longitude: number,
+            latitude: number,
+            radius: number,
+            unit: 'm'|'km'|'ft'|'mi',
+            withDist: 'WITHDIST',
+            count: 'COUNT',
+            countValue: number,
+            sort?: 'ASC' | 'DESC'
+        ): Promise<Array<[string, string]>>;
+        georadius(
+            key: KeyType,
+            longitude: number,
+            latitude: number,
+            radius: number,
+            unit: 'm'|'km'|'ft'|'mi',
+            withDist: 'WITHDIST',
+            withCoord: 'WITHCOORD',
+            sort?: 'ASC' | 'DESC'
+        ): Promise<Array<[string, string, [string, string]]>>;
+        georadius(
+            key: KeyType,
+            longitude: number,
+            latitude: number,
+            radius: number,
+            unit: 'm'|'km'|'ft'|'mi',
+            withDist: 'WITHDIST',
+            withCoord: 'WITHCOORD',
+            count: 'COUNT',
+            countValue: number,
+            sort?: 'ASC' | 'DESC'
+        ): Promise<Array<[string, string, [string, string]]>>;
 
         georadiusbymember(key: KeyType, member: string, radius: number, unit: 'm'|'km'|'ft'|'mi', callback: Callback<string[]>): void;
         georadiusbymember(key: KeyType, member: string, radius: number, unit: 'm'|'km'|'ft'|'mi', count: 'COUNT', countValue: number, callback: Callback<string[]>): void;

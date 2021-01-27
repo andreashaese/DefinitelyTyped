@@ -207,6 +207,30 @@ redis.geodist('Sicily', 'Palermo', 'Catania', 'km').then(console.log);
 redis.geohash('Sicily', 'Palermo', 'Catania').then(console.log);
 redis.geopos('Sicily', 'Palermo', 'Catania').then(console.log);
 redis.georadius('Sicily', 15, 37, 200, 'km').then(console.log);
+redis.georadius('Sicily', 15, 37, 200, 'km', 'WITHCOORD')
+    .then((result: Array<[string, [string, string]]>) => {
+        console.log(result);
+    });
+redis.georadius('Sicily', 15, 37, 200, 'km', 'WITHCOORD', 'COUNT', 5)
+    .then((result: Array<[string, [string, string]]>) => {
+        console.log(result);
+    });
+redis.georadius('Sicily', 15, 37, 200, 'km', 'WITHDIST')
+    .then((result: Array<[string, string]>) => {
+        console.log(result);
+    });
+redis.georadius('Sicily', 15, 37, 200, 'km', 'WITHDIST', 'COUNT', 5)
+    .then((result: Array<[string, string]>) => {
+        console.log(result);
+    });
+redis.georadius('Sicily', 15, 37, 200, 'km', 'WITHDIST', 'WITHCOORD')
+    .then((result: Array<[string, string, [string, string]]>) => {
+        console.log(result);
+    });
+redis.georadius('Sicily', 15, 37, 200, 'km', 'WITHDIST', 'WITHCOORD', 'COUNT', 5)
+    .then((result: Array<[string, string, [string, string]]>) => {
+        console.log(result);
+    });
 redis.georadiusbymember('Sicily', 'Palermo', 200, 'km').then(console.log);
 
 // Test for memory usage
